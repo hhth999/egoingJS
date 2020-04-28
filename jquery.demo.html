@@ -9,18 +9,22 @@
 
   <body></body>
   <script>
-    function a() {
-      let i = 0;
-      // 결과 01234
-      // i = 0;
-      //결과 무한반복
-    }
+    let MYAPP = {};
+    //MYAPP.calculator -> .calculator
+    //객체 안에 변수를 생성해줌. 이 변수(calculator)는 객체이다.
+    MYAPP.calculator = {
+      left: null,
+      right: null,
+    };
+    //
+    MYAPP.coordinate = {
+      left: null,
+      right: null,
+    };
 
-    //var i=0 == 무한반복
-    //let i=0 == 무한반복 X -- 이유 찾기
-    for (let i = 0; i < 5; i++) {
-      a();
-      document.write(i);
-    }
+    MYAPP.calculator.left = 10;
+    MYAPP.calculator.right = 20;
+
+    console.log(MYAPP["DOO"]);
   </script>
 </html>
