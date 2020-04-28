@@ -9,22 +9,18 @@
 
   <body></body>
   <script>
-    let MYAPP = {};
-    //MYAPP.calculator -> .calculator
-    //객체 안에 변수를 생성해줌. 이 변수(calculator)는 객체이다.
-    MYAPP.calculator = {
-      left: null,
-      right: null,
-    };
-    //
-    MYAPP.coordinate = {
-      left: null,
-      right: null,
-    };
+    //자바스크립트에서는 허용
+    for (let i = 0; i < 1; i++) {
+      let name = "coding everybody";
+    }
+    alert(name);
 
-    MYAPP.calculator.left = 10;
-    MYAPP.calculator.right = 20;
+    //하단 코드 (JAVA)에서는 허용하지 않음.
 
-    console.log(MYAPP["DOO"]);
+    /* for(int i=0; i<1; i++){
+      String name = "egoing";
+    }
+    System.out.println(name);
+    */
   </script>
 </html>
