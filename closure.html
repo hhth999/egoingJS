@@ -8,14 +8,16 @@
   <body></body>
   <script>
     function outer() {
-      function inner() {
-        let title = "coding everybody"; // 이 코드를 위로 한줄 올려도 alert는 coding everybody가 잘 출력된다.
+      let title = "coding everybody";
+      return function () {
         alert(title);
-      }
-      inner();
+      };
     }
-    outer();
+    inner = outer(); //return function만 리턴되어 돌아옴. title은 없는데, coding everybody가 정상적으로 출력된다.
+    inner();
 
-    // function inner(){}는 var inner = function() {}와 같기때문에 사용가능.
+    //내부함수를 포함하고 있는 외부함수에 접근할 수 있을뿐만 아니라 외부함수가 종료된 이후에도
+
+    //외부함수의 지역변수에 접근할 수 있다. closure라는 특징때문에
   </script>
 </html>
