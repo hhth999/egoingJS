@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    function outer() {
+      function inner() {
+        let title = "coding everybody"; // 이 코드를 위로 한줄 올려도 alert는 coding everybody가 잘 출력된다.
+        alert(title);
+      }
+      inner();
+    }
+    outer();
+
+    // function inner(){}는 var inner = function() {}와 같기때문에 사용가능.
+  </script>
+</html>
