@@ -7,17 +7,28 @@
   </head>
   <body></body>
   <script>
-    function outer() {
-      let title = "coding everybody";
-      return function () {
-        alert(title);
+    //private variable = 서비스가 커지는 과정에서 어떤 정보가 있을때, 정보를
+    // 아무나 수정하는것을 방지하는 것을 private variable이라고 한다.
+
+    function factory_movie(title) {
+      return {
+        get_title: function () {
+          return title;
+        },
+        set_title: function (_title) {
+          title = _title;
+        },
       };
     }
-    inner = outer(); //return function만 리턴되어 돌아옴. title은 없는데, coding everybody가 정상적으로 출력된다.
-    inner();
+    ghost = factory_movie("Ghost in the shell");
+    matrix = factory_movie("Matrix");
 
-    //내부함수를 포함하고 있는 외부함수에 접근할 수 있을뿐만 아니라 외부함수가 종료된 이후에도
+    alert(ghost.get_title());
+    alert(matrix.get_title());
 
-    //외부함수의 지역변수에 접근할 수 있다. closure라는 특징때문에
+    ghost.set_title("공각기동대");
+
+    alert(ghost.get_title());
+    alert(matrix.get_title());
   </script>
 </html>
