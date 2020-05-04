@@ -7,28 +7,29 @@
   </head>
   <body></body>
   <script>
-    //private variable = 서비스가 커지는 과정에서 어떤 정보가 있을때, 정보를
-    // 아무나 수정하는것을 방지하는 것을 private variable이라고 한다.
+    //하단의 코드는 오류 -> 값이 5만 5개 출력됨.
 
-    function factory_movie(title) {
-      return {
-        get_title: function () {
-          return title;
-        },
-        set_title: function (_title) {
-          title = _title;
-        },
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+      arr[i] = function () {
+        return i;
       };
     }
-    ghost = factory_movie("Ghost in the shell");
-    matrix = factory_movie("Matrix");
+    for (let index in arr) {
+      console.log(arr[index]());
+    }
 
-    alert(ghost.get_title());
-    alert(matrix.get_title());
-
-    ghost.set_title("공각기동대");
-
-    alert(ghost.get_title());
-    alert(matrix.get_title());
+    // ↓ 오류 수정 정상적으로 값이 0,1,2,3,4 가 나온다.
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+      arr[i] = (function (id) {
+        return function () {
+          return id;
+        };
+      })(i);
+    }
+    for (let index in arr) {
+      console.log(arr[index]());
+    }
   </script>
 </html>
